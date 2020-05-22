@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PadraoModule } from './padrao.module'
 import { map } from 'rxjs/operators'
+import { Pessoa } from './Pessoa';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class LocalstorageService extends PadraoModule {
     this.carregar()
   }
 
-  ListaPessoas() {
+  listaPessoas() : Pessoa[] {
     let pessoas = JSON.parse(localStorage.getItem('pessoas'));
     //localStorage.clear();
     return pessoas;
@@ -53,6 +54,8 @@ export class LocalstorageService extends PadraoModule {
   Ultimoid(id) {
     let pessoa = JSON.parse(localStorage.getItem('pessoas'));
     Math.max(...pessoa.map(pessoa=>pessoa.id));
+    return console.log(pessoa)
   }
+
 }
 

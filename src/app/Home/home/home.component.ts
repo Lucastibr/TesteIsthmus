@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private storage : LocalstorageService) { }
 
   ngOnInit(): void {
-    this.pessoas = this.storage.ListaPessoas()
+    this.pessoas = this.storage.listaPessoas()
     console.log(this.pessoas)
   }
 

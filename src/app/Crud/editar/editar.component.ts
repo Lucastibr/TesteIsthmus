@@ -26,7 +26,7 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(){
     let id = this.actRoute.snapshot.params['id'];
-    let pessoas = this.storage.ListaPessoas();
+    let pessoas = this.storage.listaPessoas();
     this.pessoa = pessoas.find(p => p.id == id);
     this.profileForm.patchValue(this.pessoa);
   }

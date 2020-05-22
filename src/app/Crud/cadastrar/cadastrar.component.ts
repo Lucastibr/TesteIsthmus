@@ -28,7 +28,7 @@ export class CadastrarComponent implements OnInit {
       dataNascimento : new FormControl(''),
       sexo : new FormControl('')
     })
-    let pessoa = this.localstorage.ListaPessoas();
+    let pessoa = this.localstorage.listaPessoas();
     console.log(pessoa);
   }
 
@@ -38,9 +38,6 @@ export class CadastrarComponent implements OnInit {
       this.router.navigate(['home']);
     }
 
-   
-
-  
 };
 
 

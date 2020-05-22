@@ -6,6 +6,7 @@ import { LocalstorageService } from '../localstorage.service';
 import { EMPTY } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators'
+import { Pessoa } from '../Pessoa';
 
 @Component({
   selector: 'app-detalhes',
@@ -16,21 +17,15 @@ export class DetalhesComponent implements OnInit {
 
   constructor(private Http : HttpClient, private cepService : CepService, private storage : LocalstorageService, private actRoute : ActivatedRoute) { }
 
+  id;
+  pessoas;
   pessoa;
 
   ngOnInit() {
-    let id = this.actRoute.snapshot.params['id'];
-    let pessoas = this.storage.ListaPessoas();
-    this.pessoa = pessoas.find(p => p.id == id);
+    this.id = this.actRoute.snapshot.params['id'];
+    this.pessoas = this.storage.listaPessoas();
+    this.pessoa = this.pessoas.find(p => p.id == this.id);
     console.log(this.pessoa);
-  }
-
-  Rota() {
-    this.storage.ListaPessoas()
-    .pipe(map((res: any) => res.data))
-    
-    
-  }
-
+  }  
 
 }

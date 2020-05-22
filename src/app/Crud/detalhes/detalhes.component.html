@@ -8,18 +8,19 @@
               <th scope="col">Nome</th>
               <th scope="col">CPF</th>
               <th scope="col">DataNascimento</th>
+              <th scope="col">Sexo</th>
               <th scope="col">CEP</th>
               <th scope="col">Logradouro</th>
               <th scope="col">Bairro</th>
               <th scope="col">Cidade</th>
             </tr>
           </thead>
-          <tbody *ngFor="let pessoas of pessoa.data">
+          <tbody >
             <tr >
               <th scope="row">{{pessoa.nome}}</th>
-              <td>{{pessoas.cpf}}</td>
-              <td></td>
-              <td></td>
+              <td>{{pessoa.cpf}}</td>
+              <td>{{pessoa.dataNascimento}}</td>
+              <td>{{pessoa.sexo}}</td>
             </tr>
             </tbody>
                 
