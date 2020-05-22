@@ -24,7 +24,7 @@ export class LocalstorageService extends PadraoModule {
     let pessoa = JSON.parse(localStorage.getItem('pessoas'));
     let id = this.Ultimoid;  
     novaPessoa.id = id;
-    pessoa.push(novaPessoa);
+    pessoa.push(novaPessoa + id);
     localStorage.setItem('pessoas', JSON.stringify(pessoa));
   }
 
