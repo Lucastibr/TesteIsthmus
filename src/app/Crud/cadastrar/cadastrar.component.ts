@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
 import { HttpClient } from '@angular/common/http';
 import { NgxViacepService, Endereco, ErroCep } from '@brunoc/ngx-viacep';
+import { v4 as uuidv4 } from 'uuid';
 import { CepService } from 'src/app/cep.service';
 
  
@@ -21,15 +22,17 @@ export class CadastrarComponent implements OnInit {
   
   profileForm: FormGroup;
 
+  id;
+  pessoa;
+
   ngOnInit() {
      this.profileForm = new FormGroup({
+      id : new FormControl(uuidv4()),
       nome : new FormControl(''),
       cpf : new FormControl(''),
       dataNascimento : new FormControl(''),
       sexo : new FormControl('')
     })
-    let pessoa = this.localstorage.listaPessoas();
-    console.log(pessoa);
   }
 
 

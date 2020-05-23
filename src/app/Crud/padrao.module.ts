@@ -4,13 +4,11 @@ export class PadraoModule {
       console.log('Não há pessoas cadastradas!');
       let pessoas = [
         {
-          id: 1,
+          id: "1",
           nome: "Lucas",
-          cpf: '70213241110',
+          cpf: '42131321321',
           dataNascimento : '18061996',
           sexo : 'Masculino',
-          
-
         }, 
       ];
 

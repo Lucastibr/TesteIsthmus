@@ -17,7 +17,7 @@ export class DetalhesComponent implements OnInit {
 
   constructor(private Http : HttpClient, private cepService : CepService, private storage : LocalstorageService, private actRoute : ActivatedRoute) { }
 
-  id;
+  id : string;
   pessoas;
   pessoa;
 
