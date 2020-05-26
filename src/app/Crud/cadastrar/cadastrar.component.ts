@@ -16,7 +16,7 @@ import { CepService } from 'src/app/cep.service';
 })
 export class CadastrarComponent implements OnInit {
   
-  constructor(private localstorage : LocalstorageService, private router: Router, private http: HttpClient, private viacep: NgxViacepService) { }
+  constructor(private localstorage : LocalstorageService, private router: Router, private http: HttpClient, private viacep : NgxViacepService) { }
 
   public MASKS = MASKS;
   
@@ -25,21 +25,42 @@ export class CadastrarComponent implements OnInit {
   id;
   pessoa;
 
+
   ngOnInit() {
      this.profileForm = new FormGroup({
       id : new FormControl(uuidv4()),
       nome : new FormControl(''),
       cpf : new FormControl(''),
       dataNascimento : new FormControl(''),
-      sexo : new FormControl('')
-    })
+      sexo : new FormControl(''),
+      cep : new FormControl(''),
+      logradouro: new FormControl(''),
+      bairro : new FormControl(''),
+      cidade : new FormControl(''),
+      uf : new FormControl('')
+    }),
+    
+   
+
+  this.viacep.buscarPorCep('').then( ( endereco: Endereco ) => {
+    // Endereço retornado :)
+    console.log(endereco);
+   }).catch( (error: ErroCep) => {
+    // Alguma coisa deu errado :/
+    console.log(error.message);
+   });
   }
 
+  
+   
 
  OnSubmit() {
       this.localstorage.AddPessoa(this.profileForm.value);
       this.router.navigate(['home']);
+    
+   
     }
+
 
 };
 
